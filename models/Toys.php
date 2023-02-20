@@ -19,6 +19,6 @@ class Toys extends Product
     {
         $categorys = array_map(fn ($category) => $category->name, $this->categorys);
         $category_names = implode(',', $categorys);
-        return "Prodotto : $this->title Euro : $this->price  Categoria : $category_names Colore : $this->color, Dimensioni :  $this->size ";
+        return "Prodotto : $this->title Euro : $this->price  Categoria : $category_names Colore : $this->color, Dimensioni :  $this->size cm ";
     }
 }
