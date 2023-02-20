@@ -1,12 +1,12 @@
 body {
     background-color: #1d2d3c;
-    color: white;
 }
 
 
 .my-card {
-    background-color: #112030;
+    background-color: white;
     box-shadow: 0 8px 8px -4px lightblue;
+    height: 100%;
 }
 
 .my-card img {
