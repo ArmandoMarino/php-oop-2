@@ -3,42 +3,18 @@
 // - I prodotti sono categorizzati, le categorie sono Cani o Gatti.
 // - Tra i prodotti, troviamo cibo, giochi, cucce, etc.
 
+include_once __DIR__ . '/models/Product.php';
 
-class Category
-{
-    public $name;
-
-    public function __construct($name)
-    {
-        $this->name = $name;
-    }
-}
+include_once __DIR__ . '/models/Category.php';
 
 
-class Product
-{
-    public $id;
-    public $title;
-    public $price;
-    public $category;
 
-    public function __construct($id, $title, $price, Category $category)
-    {
-        $this->id = $id;
-        $this->title = $title;
-        $this->price = $price;
-        $this->category = $category;
-    }
+$cani = new Categorys('cani');
+$gatti = new Categorys('gatti');
 
-    public function getDetails()
-    {
-        $category_name = $this->category->name;
-        return "Prodotto : $this->title Euro : $this->price  Categoria : $category_name";
-    }
-}
+$ultima = new Product(1, 'Ultima Cibo per Cani', 36, [$cani]);
+var_dump($ultima);
+$advance  = new Product(2, 'Veterinary Diets', 32, [$gatti]);
 
 
-$cani = new Category('cani');
-
-$Ultima = new Product(1, 'Ultima Cibo per Cani', 36, $cani);
-var_dump($Ultima);
+$products = [$ultima, $advance];
