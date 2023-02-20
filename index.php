@@ -13,12 +13,13 @@ include_once __DIR__ . '/models/Accessory.php';
 
 
 
-//definire le classi
+//definire le classi (qui potevamo avere piu categorie in una perchè è stato passato un array)
 $cani = new Categorys('cani');
 $gatti = new Categorys('gatti');
+$pets = new Categorys('pets');
 
 //Food (Products)
-$ultima = new Food(1, 'Ultima Cibo per Cani', 36, [$cani], '23/11/2025', 'Mais, trota(17%), riso, proteine di mais, proteine disidratate di trota(7%)', 'Pesce');
+$ultima = new Food(1, 'Ultima Cibo per Cani', 36, [$cani, $pets], '23/11/2025', 'Mais, trota(17%), riso, proteine di mais, proteine disidratate di trota(7%)', 'Pesce');
 $advance  = new Food(2, 'Veterinary Diets', 32, [$gatti], '23/11/2025', 'Mais, carne(17%), riso, proteine di mais, carne(7%)', 'carne');
 
 //Toys (Products)
@@ -33,5 +34,50 @@ $ace2ace = new Accessory(3, 'Spazzola Morbida', 15, [$gatti], 'ACE2ACE', 'Plasti
 // Preparo i Foods generici ma avranno le loro proprietà strutturali definite in altre istanze,
 // in un array per stamparli in pagina.
 $foods = [$ultima, $advance];
+$toys = [$ruxan, $jingshubo];
+$accessories = [$vitazoo, $ace2ace];
 
-var_dump($foods);
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>php-oop-2</title>
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!-- STYLE -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        <div id="app" class="container m-5 text-center">
+            <h1>Php Class Test n°2</h1>
+            <div class="row g-4 justify-content-center mt-2">
+                <?php foreach ($foods as $food) : ?>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="my-card p-3 text-center">
+                            <figure>
+                                <img class="img-fluid" src=<?= "" ?> alt="<?= $food->title ?>">
+                            </figure>
+                            <h5> <?= $food->title ?> </h5>
+                            <?php foreach ($food->categorys as $category) : ?>
+                                <span><?= $category->name ?></span>
+                            <?php endforeach; ?>
+                            <p><?= $food->getDetails() ?></p>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+
+
+
+
+            </div>
+    </main>
+</body>
+
+</html>
