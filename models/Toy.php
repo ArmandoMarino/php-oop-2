@@ -7,9 +7,9 @@ class Toy extends Product
     public $color;
     public $size;
 
-    public function __construct($id, $title, $price, array $categorys, $color, $size)
+    public function __construct($id, $title, $price, array $categorys, $poster, $color, $size)
     {
-        parent::__construct($id, $title, $price, $categorys);
+        parent::__construct($id, $title, $price, $categorys, $poster);
 
         $this->color = $color;
         $this->size = $size;
@@ -19,6 +19,6 @@ class Toy extends Product
     {
         $categorys = array_map(fn ($category) => $category->name, $this->categorys);
         $category_names = implode(',', $categorys);
-        return "Prodotto : $this->title Euro : $this->price  Categoria : $category_names Colore : $this->color, Dimensioni :  $this->size cm ";
+        return "Colore : $this->color, Dimensioni :  $this->size cm ";
     }
 }

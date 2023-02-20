@@ -7,9 +7,9 @@ class Accessory extends Product
     public $brand;
     public $material;
 
-    public function __construct($id, $title, $price, array $categorys, $brand, $material)
+    public function __construct($id, $title, $price, array $categorys, $poster, $brand, $material)
     {
-        parent::__construct($id, $title, $price, $categorys);
+        parent::__construct($id, $title, $price, $categorys, $poster);
 
         $this->brand = $brand;
         $this->material = $material;
@@ -19,6 +19,6 @@ class Accessory extends Product
     {
         $categorys = array_map(fn ($category) => $category->name, $this->categorys);
         $category_names = implode(',', $categorys);
-        return "Prodotto : $this->title Euro : $this->price  Categoria : $category_names Marchio : $this->brand Materiali :  $this->material";
+        return "Marchio : $this->brand , Materiali :  $this->material";
     }
 }

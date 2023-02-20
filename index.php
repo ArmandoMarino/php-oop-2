@@ -58,6 +58,8 @@ $accessories = [$vitazoo, $ace2ace];
         <div id="app" class="container m-5 text-center">
             <h1>Php Class Test n°2</h1>
             <div class="row g-4 justify-content-center mt-2">
+
+                <h3>Cibo</h3>
                 <?php foreach ($foods as $food) : ?>
                     <div class="col-12 col-md-6 col-lg-3">
                         <div class="my-card p-3 text-center">
@@ -65,6 +67,7 @@ $accessories = [$vitazoo, $ace2ace];
                                 <img class="img-fluid" src=<?= "" ?> alt="<?= $food->title ?>">
                             </figure>
                             <h5> <?= $food->title ?> </h5>
+                            <span>Categoria :</span>
                             <?php foreach ($food->categorys as $category) : ?>
                                 <span><?= $category->name ?></span>
                             <?php endforeach; ?>
@@ -73,8 +76,37 @@ $accessories = [$vitazoo, $ace2ace];
                     </div>
                 <?php endforeach; ?>
 
+                <h3>Giochi</h3>
+                <?php foreach ($toys as $toy) : ?>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="my-card p-3 text-center">
+                            <figure>
+                                <img class="img-fluid" src=<?= "" ?> alt="<?= $toy->title ?>">
+                            </figure>
+                            <h5> <?= $toy->title ?> </h5>
+                            <?php foreach ($toy->categorys as $category) : ?>
+                                <span><?= $category->name ?></span>
+                            <?php endforeach; ?>
+                            <p><?= $toy->getDetails() ?></p>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
 
-
+                <h3>Accessori</h3>
+                <?php foreach ($accessories as $accessorie) : ?>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="my-card p-3 text-center">
+                            <figure>
+                                <img class="img-fluid" src=<?= "" ?> alt="<?= $accessorie->title ?>">
+                            </figure>
+                            <h5> <?= $accessorie->title ?> </h5>
+                            <?php foreach ($accessorie->categorys as $category) : ?>
+                                <span><?= $category->name ?></span>
+                            <?php endforeach; ?>
+                            <p><?= $accessorie->getDetails() ?></p>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
 
             </div>
     </main>
