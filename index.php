@@ -59,6 +59,7 @@ $accessories = [$vitazoo, $ace2ace];
             <h1 class="text-white">Php Class Test n°2</h1>
             <div class="row g-4 justify-content-center mt-2">
 
+                <!-- CARDS CIBO -->
                 <h3 class="text-white">Cibo</h3>
                 <?php foreach ($foods as $food) : ?>
                     <div class="col-12 col-md-6 col-lg-3">
@@ -76,6 +77,7 @@ $accessories = [$vitazoo, $ace2ace];
                     </div>
                 <?php endforeach; ?>
 
+                <!-- CARDS GIOCHI -->
                 <h3 class="text-white">Giochi</h3>
                 <?php foreach ($toys as $toy) : ?>
                     <div class="col-12 col-md-6 col-lg-3">
@@ -92,6 +94,7 @@ $accessories = [$vitazoo, $ace2ace];
                     </div>
                 <?php endforeach; ?>
 
+                <!-- CARDS ACCESSORI -->
                 <h3 class="text-white">Accessori</h3>
                 <?php foreach ($accessories as $accessorie) : ?>
                     <div class="col-12 col-md-6 col-lg-3">
