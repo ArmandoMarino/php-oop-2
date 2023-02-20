@@ -28,6 +28,6 @@ class Product
     // Funzione che restituisce il path immagini
     public function getPath()
     {
-        return $this->poster;
+        return "./img/$this->poster";
     }
 }

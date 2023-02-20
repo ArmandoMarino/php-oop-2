@@ -21,4 +21,9 @@ class Toy extends Product
         $category_names = implode(',', $categorys);
         return "Colore : $this->color, Dimensioni :  $this->size cm ";
     }
+    // Funzione che restituisce il path immagini
+    public function getPath()
+    {
+        return "./img/$this->poster";
+    }
 }

@@ -21,4 +21,10 @@ class Accessory extends Product
         $category_names = implode(',', $categorys);
         return "Marchio : $this->brand , Materiali :  $this->material";
     }
+
+    // Funzione che restituisce il path immagini
+    public function getPath()
+    {
+        return "./img/$this->poster";
+    }
 }

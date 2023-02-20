@@ -23,4 +23,10 @@ class Food extends Product
         $category_names = implode(',', $categorys);
         return "Data di scadenza : $this->expiration_date, Ingredienti :  $this->ingredients, Gusto : $this->flavour ";
     }
+
+    // Funzione che restituisce il path immagini
+    public function getPath()
+    {
+        return "./img/$this->poster";
+    }
 }
