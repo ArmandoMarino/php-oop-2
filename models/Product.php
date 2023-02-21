@@ -37,6 +37,7 @@ class Product
         return $this->price;
     }
 
+    //QUI volendo posso gestire una Exeption con try catch
     public function setPrice($price)
     {
         if (!is_numeric($price)) {
