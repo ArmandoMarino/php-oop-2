@@ -3,8 +3,7 @@
 // - I prodotti sono categorizzati, le categorie sono Cani o Gatti.
 // - Tra i prodotti, troviamo cibo, giochi, cucce, etc.
 
-//Importare classi
-include_once __DIR__ . '/models/Category.php';
+//Importare classi ( la categoria appartiene a Product e se la porta lui)
 include_once __DIR__ . '/models/Product.php';
 include_once __DIR__ . '/models/Food.php';
 include_once __DIR__ . '/models/Toy.php';
@@ -23,7 +22,8 @@ $pets = new Categorys('Pets', 'fa-solid fa-paw');
 $ultima = new Food('Ultima Cibo per Cani', 36, [$cani, $pets], 'ultima.jpg', '23/11/2025', 'Mais, trota(17%), riso, proteine di mais, proteine disidratate di trota(7%)', 'Pesce');
 $advance  = new Food('Veterinary Diets', 32, [$gatti, $pets], 'advance.jpg', '23/11/2025', 'Mais, carne(17%), riso, proteine di mais, carne(7%)', 'carne');
 
-
+$ultima->setScaffale('C');
+$ultima->setCorridoio('3');
 
 //Toys (Products)
 $ruxan = new Toy('Ruxan Giocattolo', 15, [$cani, $pets], 'ruxan.jpg', 'Giallo', 15);

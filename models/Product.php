@@ -1,8 +1,10 @@
 <?php
 require_once __DIR__ . '/Category.php';
+require_once __DIR__ . '/TraitsEx.php';
 
 class Product
 {
+    use Position;
     protected $id;
     protected $title;
     protected $price;
