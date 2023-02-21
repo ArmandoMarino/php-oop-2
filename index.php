@@ -79,6 +79,7 @@ $accessories = [$vitazoo, $ace2ace];
                                 <i class="<?= $category->getIcon() ?>"></i>
                             <?php endforeach; ?>
                             <p><?= $food->getDetails() ?></p>
+                            <p><strong>Es Posizione : </strong><?= $food->getPosition()  ?></p>
                         </div>
                     </div>
                 <?php endforeach; ?>
