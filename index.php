@@ -14,9 +14,9 @@ include_once __DIR__ . '/models/Accessory.php';
 
 
 //definire le classi (qui potevamo avere piu categorie in una perchè è stato passato un array)
-$gatti = new Categorys('gatti', 'fa-solid fa-cat');
-$cani = new Categorys('cani', 'fa-solid fa-dog');
-$pets = new Categorys('pets', 'fa-solid fa-paw');
+$gatti = new Categorys('Gatti', 'fa-solid fa-cat');
+$cani = new Categorys('Cani', 'fa-solid fa-dog');
+$pets = new Categorys('Pets', 'fa-solid fa-paw');
 
 
 //Food (Products)
@@ -112,6 +112,7 @@ $accessories = [$vitazoo, $ace2ace];
                             <h5> <?= $accessorie->getTitle() ?> </h5>
                             <?php foreach ($accessorie->getCategorys() as $category) : ?>
                                 <span><?= $category->getName() ?></span>
+                                <i class="<?= $category->getIcon() ?>"></i>
                             <?php endforeach; ?>
                             <p><?= $accessorie->getDetails() ?></p>
                         </div>
