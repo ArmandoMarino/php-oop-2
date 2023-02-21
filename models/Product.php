@@ -39,6 +39,12 @@ class Product
 
     public function setPrice($price)
     {
+        if (!is_numeric($price)) {
+            throw new Exception("Price must be a number!");
+        }
+        if ($price < 0 || $price > 1000) {
+            throw new Exception("Price must be between 0 and 1000 Euro!");
+        }
         $this->price = $price;
         return $this;
     }
