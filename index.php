@@ -22,7 +22,6 @@ $pets = new Categorys('pets', 'fa-solid fa-paw');
 //Food (Products)
 $ultima = new Food('Ultima Cibo per Cani', 36, [$cani, $pets], 'ultima.jpg', '23/11/2025', 'Mais, trota(17%), riso, proteine di mais, proteine disidratate di trota(7%)', 'Pesce');
 $advance  = new Food('Veterinary Diets', 32, [$gatti, $pets], 'advance.jpg', '23/11/2025', 'Mais, carne(17%), riso, proteine di mais, carne(7%)', 'carne');
-var_dump($ultima);
 
 
 

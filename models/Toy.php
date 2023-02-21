@@ -56,6 +56,7 @@ class Toy extends Product
     {
         return "Colore : $this->color, Dimensioni :  $this->size cm ";
     }
+
     // Funzione che restituisce il path immagini
     public function getPath()
     {

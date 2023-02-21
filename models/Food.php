@@ -12,9 +12,9 @@ class Food extends Product
     {
         parent::__construct($title, $price, $categorys, $poster);
 
-        $this->getExpiration($expiration);
-        $this->getIngredients($ingredients);
-        $this->getFlavour($flavour);
+        $this->setExpiration($expiration);
+        $this->setIngredients($ingredients);
+        $this->setFlavour($flavour);
     }
 
     // ID
