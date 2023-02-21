@@ -11,28 +11,31 @@ include_once __DIR__ . '/models/Accessory.php';
 
 
 
+try {
+    //definire le classi (qui potevamo avere piu categorie in una perchè è stato passato un array)
+    $gatti = new Categorys('Gatti', 'fa-solid fa-cat');
+    $cani = new Categorys('Cani', 'fa-solid fa-dog');
+    $pets = new Categorys('Pets', 'fa-solid fa-paw');
 
-//definire le classi (qui potevamo avere piu categorie in una perchè è stato passato un array)
-$gatti = new Categorys('Gatti', 'fa-solid fa-cat');
-$cani = new Categorys('Cani', 'fa-solid fa-dog');
-$pets = new Categorys('Pets', 'fa-solid fa-paw');
 
+    //Food (Products)
+    $ultima = new Food('Ultima Cibo per Cani', 36, [$cani, $pets], 'ultima.jpg', '23/11/2025', 'Mais, trota(17%), riso, proteine di mais, proteine disidratate di trota(7%)', 'Pesce');
+    $advance  = new Food('Veterinary Diets', 32, [$gatti, $pets], 'advance.jpg', '23/11/2025', 'Mais, carne(17%), riso, proteine di mais, carne(7%)', 'carne');
 
-//Food (Products)
-$ultima = new Food('Ultima Cibo per Cani', 36, [$cani, $pets], 'ultima.jpg', '23/11/2025', 'Mais, trota(17%), riso, proteine di mais, proteine disidratate di trota(7%)', 'Pesce');
-$advance  = new Food('Veterinary Diets', 32, [$gatti, $pets], 'advance.jpg', '23/11/2025', 'Mais, carne(17%), riso, proteine di mais, carne(7%)', 'carne');
+    $ultima->setScaffale('C');
+    $ultima->setCorridoio('3');
 
-$ultima->setScaffale('C');
-$ultima->setCorridoio('3');
+    //Toys (Products)
+    $ruxan = new Toy('Ruxan Giocattolo', 15, [$cani, $pets], 'ruxan.jpg', 'Giallo', 15);
+    $jingshubo = new Toy('JINGSHUBO - Palla giocattolo', 15, [$gatti, $pets], 'jing.jpg', 'Rosso', 14);
 
-//Toys (Products)
-$ruxan = new Toy('Ruxan Giocattolo', 15, [$cani, $pets], 'ruxan.jpg', 'Giallo', 15);
-$jingshubo = new Toy('JINGSHUBO - Palla giocattolo', 15, [$gatti, $pets], 'jing.jpg', 'Rosso', 14);
-
-// Accessory (Products)
-$vitazoo = new Accessory('VitaZoo Guinzaglio', 15, [$cani, $pets], 'vitazoo.jpg', 'Trax', 'Nylon');
-$ace2ace = new Accessory('Spazzola Morbida', 15, [$gatti, $pets], 'ace2ace.jpg', 'ACE2ACE', 'Plastic');
-
+    // Accessory (Products)
+    $vitazoo = new Accessory('VitaZoo Guinzaglio', 15, [$cani, $pets], 'vitazoo.jpg', 'Trax', 'Nylon');
+    $ace2ace = new Accessory('Spazzola Morbida', 15, [$gatti, $pets], 'ace2ace.jpg', 'ACE2ACE', 'Plastic');
+} catch (Exception $e) {
+    echo "Si è verificato un errore";
+    die();
+}
 
 // Preparo i Foods generici ma avranno le loro proprietà strutturali definite in altre istanze,
 // in un array per stamparli in pagina.
