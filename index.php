@@ -14,14 +14,17 @@ include_once __DIR__ . '/models/Accessory.php';
 
 
 //definire le classi (qui potevamo avere piu categorie in una perchè è stato passato un array)
-$gatti = new Categorys('gatti', 'fa-solid fa-dog');
+$gatti = new Categorys('gatti', 'fa-solid fa-cat');
 $cani = new Categorys('cani', 'fa-solid fa-dog');
-$pets = new Categorys('pets', 'fa-solid fa-pet');
+$pets = new Categorys('pets', 'fa-solid fa-paw');
 
 
 //Food (Products)
 $ultima = new Food('Ultima Cibo per Cani', 36, [$cani, $pets], 'ultima.jpg', '23/11/2025', 'Mais, trota(17%), riso, proteine di mais, proteine disidratate di trota(7%)', 'Pesce');
 $advance  = new Food('Veterinary Diets', 32, [$gatti, $pets], 'advance.jpg', '23/11/2025', 'Mais, carne(17%), riso, proteine di mais, carne(7%)', 'carne');
+var_dump($ultima);
+
+
 
 //Toys (Products)
 $ruxan = new Toy('Ruxan Giocattolo', 15, [$cani, $pets], 'ruxan.jpg', 'Giallo', 15);
@@ -74,6 +77,7 @@ $accessories = [$vitazoo, $ace2ace];
                             <span>Categoria :</span>
                             <?php foreach ($food->getCategorys() as $category) : ?>
                                 <span><?= $category->getName() ?></span>
+                                <i class="<?= $category->getIcon() ?>"></i>
                             <?php endforeach; ?>
                             <p><?= $food->getDetails() ?></p>
                         </div>
@@ -89,8 +93,9 @@ $accessories = [$vitazoo, $ace2ace];
                                 <img class="img-fluid" src=<?= $toy->getPath() ?> alt="<?= $toy->getTitle() ?>">
                             </figure>
                             <h5> <?= $toy->getTitle() ?> </h5>
-                            <?php foreach ($toy->setCategorys($categorys) as $category) : ?>
+                            <?php foreach ($toy->getCategorys() as $category) : ?>
                                 <span><?= $category->getName() ?></span>
+                                <i class="<?= $category->getIcon() ?>"></i>
                             <?php endforeach; ?>
                             <p><?= $toy->getDetails() ?></p>
                         </div>
@@ -106,8 +111,8 @@ $accessories = [$vitazoo, $ace2ace];
                                 <img class="img-fluid" src=<?= $accessorie->getPath() ?> alt="<?= $accessorie->getTitle() ?>">
                             </figure>
                             <h5> <?= $accessorie->getTitle() ?> </h5>
-                            <?php foreach ($accessorie->categorys as $category) : ?>
-                                <span><?= $category->name ?></span>
+                            <?php foreach ($accessorie->getCategorys() as $category) : ?>
+                                <span><?= $category->getName() ?></span>
                             <?php endforeach; ?>
                             <p><?= $accessorie->getDetails() ?></p>
                         </div>
