@@ -80,8 +80,6 @@ class Product
     // FUNZIONE CHE RESTITUISCE I DETTAGLI INTERPOLATI
     public function getDetails()
     {
-        $categorys = array_map(fn ($category) => $category->name, $this->categorys);
-        $category_names = implode(',', $categorys);
-        return "Prodotto : $this->title Euro : $this->price  Categoria : $category_names";
+        return "Prodotto : $this->title Euro : $this->price  Categoria : $this->categorys";
     }
 }

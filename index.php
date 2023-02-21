@@ -15,21 +15,21 @@ include_once __DIR__ . '/models/Accessory.php';
 
 //definire le classi (qui potevamo avere piu categorie in una perchè è stato passato un array)
 $gatti = new Categorys('gatti', 'fa-solid fa-dog');
-$pets = new Categorys('pets', 'fa-solid fa-pet');
 $cani = new Categorys('cani', 'fa-solid fa-dog');
+$pets = new Categorys('pets', 'fa-solid fa-pet');
 
 
 //Food (Products)
-$ultima = new Food(1, 'Ultima Cibo per Cani', 36, [$cani, $pets], 'ultima.jpg', '23/11/2025', 'Mais, trota(17%), riso, proteine di mais, proteine disidratate di trota(7%)', 'Pesce');
-$advance  = new Food(2, 'Veterinary Diets', 32, [$gatti], 'advance.jpg', '23/11/2025', 'Mais, carne(17%), riso, proteine di mais, carne(7%)', 'carne');
+$ultima = new Food('Ultima Cibo per Cani', 36, [$cani, $pets], 'ultima.jpg', '23/11/2025', 'Mais, trota(17%), riso, proteine di mais, proteine disidratate di trota(7%)', 'Pesce');
+$advance  = new Food('Veterinary Diets', 32, [$gatti, $pets], 'advance.jpg', '23/11/2025', 'Mais, carne(17%), riso, proteine di mais, carne(7%)', 'carne');
 
 //Toys (Products)
-$ruxan = new Toy(3, 'Ruxan Giocattolo', 15, [$cani], 'ruxan.jpg', 'Giallo', 15);
-$jingshubo = new Toy(4, 'JINGSHUBO - Palla giocattolo', 15, [$gatti], 'jing.jpg', 'Rosso', 14);
+$ruxan = new Toy('Ruxan Giocattolo', 15, [$cani, $pets], 'ruxan.jpg', 'Giallo', 15);
+$jingshubo = new Toy('JINGSHUBO - Palla giocattolo', 15, [$gatti, $pets], 'jing.jpg', 'Rosso', 14);
 
 // Accessory (Products)
-$vitazoo = new Accessory(3, 'VitaZoo Guinzaglio', 15, [$cani], 'vitazoo.jpg', 'Trax', 'Nylon');
-$ace2ace = new Accessory(3, 'Spazzola Morbida', 15, [$gatti], 'ace2ace.jpg', 'ACE2ACE', 'Plastic');
+$vitazoo = new Accessory('VitaZoo Guinzaglio', 15, [$cani, $pets], 'vitazoo.jpg', 'Trax', 'Nylon');
+$ace2ace = new Accessory('Spazzola Morbida', 15, [$gatti, $pets], 'ace2ace.jpg', 'ACE2ACE', 'Plastic');
 
 
 // Preparo i Foods generici ma avranno le loro proprietà strutturali definite in altre istanze,
@@ -68,12 +68,12 @@ $accessories = [$vitazoo, $ace2ace];
                     <div class="col-12 col-md-6 col-lg-3">
                         <div class="my-card p-3 text-center">
                             <figure>
-                                <img class="img-fluid" src=<?= $food->getPath() ?> alt="<?= $food->title ?>">
+                                <img class="img-fluid" src=<?= $food->getPath() ?> alt="<?= $food->getTitle() ?>">
                             </figure>
-                            <h5> <?= $food->title ?> </h5>
+                            <h5> <?= $food->getTitle() ?> </h5>
                             <span>Categoria :</span>
-                            <?php foreach ($food->categorys as $category) : ?>
-                                <span><?= $category->name ?></span>
+                            <?php foreach ($food->getCategorys() as $category) : ?>
+                                <span><?= $category->getName() ?></span>
                             <?php endforeach; ?>
                             <p><?= $food->getDetails() ?></p>
                         </div>
@@ -86,11 +86,11 @@ $accessories = [$vitazoo, $ace2ace];
                     <div class="col-12 col-md-6 col-lg-3">
                         <div class="my-card p-3 text-center">
                             <figure>
-                                <img class="img-fluid" src=<?= $toy->getPath() ?> alt="<?= $toy->title ?>">
+                                <img class="img-fluid" src=<?= $toy->getPath() ?> alt="<?= $toy->getTitle() ?>">
                             </figure>
-                            <h5> <?= $toy->title ?> </h5>
-                            <?php foreach ($toy->categorys as $category) : ?>
-                                <span><?= $category->name ?></span>
+                            <h5> <?= $toy->getTitle() ?> </h5>
+                            <?php foreach ($toy->setCategorys($categorys) as $category) : ?>
+                                <span><?= $category->getName() ?></span>
                             <?php endforeach; ?>
                             <p><?= $toy->getDetails() ?></p>
                         </div>
@@ -103,9 +103,9 @@ $accessories = [$vitazoo, $ace2ace];
                     <div class="col-12 col-md-6 col-lg-3">
                         <div class="my-card p-3 text-center">
                             <figure>
-                                <img class="img-fluid" src=<?= $accessorie->getPath() ?> alt="<?= $accessorie->title ?>">
+                                <img class="img-fluid" src=<?= $accessorie->getPath() ?> alt="<?= $accessorie->getTitle() ?>">
                             </figure>
-                            <h5> <?= $accessorie->title ?> </h5>
+                            <h5> <?= $accessorie->getTitle() ?> </h5>
                             <?php foreach ($accessorie->categorys as $category) : ?>
                                 <span><?= $category->name ?></span>
                             <?php endforeach; ?>

@@ -7,12 +7,24 @@ class Toy extends Product
     private $color;
     private $size;
 
-    public function __construct($id, $title, $price, array $categorys, $poster, $color, $size)
+    public function __construct($title, $price, array $categorys, $poster, $color, $size)
     {
-        parent::__construct($id, $title, $price, $categorys, $poster);
+        parent::__construct($title, $price, $categorys, $poster);
 
         $this->setColor($color);
         $this->setSize($size);
+    }
+
+    // ID
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId($id)
+    {
+        $this->id = uniqid();
+        return $this;
     }
 
     // COLOR
@@ -42,8 +54,6 @@ class Toy extends Product
     // FUNZIONE CHE RESTITUISCE I DETTAGLI INTERPOLATI
     public function getDetails()
     {
-        $categorys = array_map(fn ($category) => $category->name, $this->categorys);
-        $category_names = implode(',', $categorys);
         return "Colore : $this->color, Dimensioni :  $this->size cm ";
     }
     // Funzione che restituisce il path immagini

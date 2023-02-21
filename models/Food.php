@@ -8,15 +8,26 @@ class Food extends Product
     private $ingredients;
     private $flavour;
 
-    public function __construct($id, $title, $price, array $categorys, $poster, $expiration, $ingredients, $flavour)
+    public function __construct($title, $price, array $categorys, $poster, $expiration, $ingredients, $flavour)
     {
-        parent::__construct($id, $title, $price, $categorys, $poster);
+        parent::__construct($title, $price, $categorys, $poster);
 
         $this->getExpiration($expiration);
         $this->getIngredients($ingredients);
         $this->getFlavour($flavour);
     }
 
+    // ID
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId($id)
+    {
+        $this->id = uniqid();
+        return $this;
+    }
 
     // EXPIRATION
     public function getExpiration()
@@ -57,8 +68,6 @@ class Food extends Product
     // FUNZIONE CHE RESTITUISCE I DETTAGLI INTERPOLATI
     public function getDetails()
     {
-        $categorys = array_map(fn ($category) => $category->name, $this->categorys);
-        $category_names = implode(',', $categorys);
         return "Data di scadenza : $this->expiration, Ingredienti :  $this->ingredients, Gusto : $this->flavour ";
     }
 
